@@ -26,6 +26,7 @@ namespace SnakeAndLadder
                 {
                     case NO_PLAY:
                         playerPosition += 0;
+                        Console.WriteLine("Rolling Dice = " + RollingDice());
                         Console.WriteLine("The Player Stay's in the same position");
                         break;
                     case LADDER:
@@ -34,7 +35,8 @@ namespace SnakeAndLadder
                         {
                             playerPosition -= RollingDice();
                         }
-                        Console.WriteLine("The Player move's forward");
+                        Console.WriteLine("Rolling Dice = " + RollingDice());
+                        Console.WriteLine("The Player move's forward = " + playerPosition);
                         break;
                     case SNAKE:
                         playerPosition -= RollingDice();
@@ -42,14 +44,14 @@ namespace SnakeAndLadder
                         {
                             playerPosition = 0;
                         }
-                        Console.WriteLine("The Player move's backward");
+                        Console.WriteLine("Rolling Dice = " + RollingDice());
+                        Console.WriteLine("The Player move's backward = " + playerPosition);
                         break;
                 }
             }
             if (playerPosition == WINNING_POSITION)
             {
-                Console.WriteLine("Rolling Dice : " + RollingDice());
-                Console.WriteLine("Player Position : " + playerPosition);
+                Console.WriteLine("Player Winning Position" + " = " + playerPosition);
             }
         }
     }
