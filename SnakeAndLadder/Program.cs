@@ -7,8 +7,7 @@ namespace SnakeAndLadder
         {
             GameSim game = new GameSim();
             game.RollingDie();
-            Console.WriteLine("Rolling Die : " + game.RollingDie());
-            Console.WriteLine("Rolling Die : " + game.playerPosition);
+            game.Play();
         }
     }
 }
