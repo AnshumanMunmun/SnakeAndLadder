@@ -6,7 +6,9 @@ namespace SnakeAndLadder
         static void Main(string[] args)
         {
             GameSim game = new GameSim();
-            Console.WriteLine(game.playerPosition);
+            game.RollingDie();
+            Console.WriteLine("Rolling Die : " + game.RollingDie());
+            Console.WriteLine("Rolling Die : " + game.playerPosition);
         }
     }
 }
