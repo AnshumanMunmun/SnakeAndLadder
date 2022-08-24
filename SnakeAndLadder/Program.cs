@@ -6,7 +6,6 @@ namespace SnakeAndLadder
         static void Main(string[] args)
         {
             GameSim game = new GameSim();
-            game.RollingDie();
             game.Play();
         }
     }

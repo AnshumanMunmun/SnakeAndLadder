@@ -9,13 +9,13 @@ namespace SnakeAndLadder
     internal class GameSim
     {
         public int playerPosition = 0;
-        const int NO_PLAY = 0, LADDER = 1, SNAKE = 2;
+        const int NO_PLAY = 0, LADDER = 1, SNAKE = 2, WINNING_POSITION = 100;
         Random random = new Random();
-        public int RollingDie()
+        public int RollingDice()
         {
             Random random = new Random();
-            int dieCount = random.Next(1, 7);
-            return dieCount;
+            int diceCount = random.Next(1, 7);
+            return diceCount;
         }
         public void Play()
         {
@@ -29,22 +29,28 @@ namespace SnakeAndLadder
                         Console.WriteLine("The Player Stay's in the same position");
                         break;
                     case LADDER:
-                        playerPosition += RollingDie();
+                        playerPosition += RollingDice();
+                        if (playerPosition > 100)
+                        {
+                            playerPosition -= RollingDice();
+                        }
                         Console.WriteLine("The Player move's forward");
                         break;
                     case SNAKE:
-                        playerPosition -= RollingDie();
-                        Console.WriteLine("The Player move's backward");
-                        break;
+                        playerPosition -= RollingDice();
                         if (playerPosition < 0)
                         {
                             playerPosition = 0;
                         }
+                        Console.WriteLine("The Player move's backward");
                         break;
                 }
             }
-            Console.WriteLine("Rolling Die : " + RollingDie());
-            Console.WriteLine("Player Position : " + playerPosition);
+            if (playerPosition == WINNING_POSITION)
+            {
+                Console.WriteLine("Rolling Dice : " + RollingDice());
+                Console.WriteLine("Player Position : " + playerPosition);
+            }
         }
     }
 }
